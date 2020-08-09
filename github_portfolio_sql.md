@@ -29,7 +29,7 @@ SET {%for l in loe_actions%} `{{get_group_name(l.cons_group_table) | slice(0,63)
 SELECT * FROM {{tmp("results")}}
 ```
 
-This query pulls form signups through email for signups from 2018 to year to date. The output is a sum of total and unique signups (by email address) for each mailing, signup form, and source and subsource code.
+This query pulls form signups through email for signups from 2018 through 2020. The output is a sum of total and unique signups (by email address) for each mailing, signup form, and source and subsource code.
 
 ``` r
 select 
