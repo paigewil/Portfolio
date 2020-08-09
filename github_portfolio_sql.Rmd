@@ -1,6 +1,5 @@
 ---
 title: "SQL Examples"
-author: "Paige Williams"
 output: rmarkdown::github_document
 ---
 
