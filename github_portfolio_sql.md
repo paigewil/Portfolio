@@ -1,6 +1,5 @@
 SQL Examples
 ================
-Paige Williams
 
 The following query identifies a constituent's membership in different constituent groups, pulling only constituents groups that match a specific naming pattern. It outputs a table with constituent group names as columns and each constituent as rows with a 1 or 0 to identify their membership in each constituent group.
 
