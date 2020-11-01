@@ -3,24 +3,24 @@ title: "SQL Code Examples"
 output: rmarkdown::github_document
 ---
 
-The following query identifies a constituent's membership in different constituent groups, pulling only constituents groups that match a specific naming pattern. It outputs a table with constituent group names as columns and each constituent as rows with a 1 or 0 to identify their membership in each constituent group.
+The following query identifies a constituent's membership in different constituent groups, pulling only constituents groups that match a specific naming pattern. It outputs a table with constituent group names as columns and each constituent as rows with a 1 or 0 to identify their membership in the constituent group.
 ```{r, eval = FALSE}
 CREATE TEMPORARY TABLE {{tmp("results")}} (
   cons_id INT
 ) as select cons_id from cons_table;
 
 
-{% set loe_actions = eval_sql("SELECT cons_group_table from cons_groups where lower(name) LIKE '%loe action - %'") %}
+{% set specific_cgs = eval_sql("SELECT cons_group_table from cons_groups where lower(name) LIKE '%example - %'") %}
 
 ALTER TABLE {{tmp("results")}} 
-{% for l in loe_actions%} 
+{% for l in specific_cgs%} 
     ADD `{{get_group_name(l.cons_group_table) | slice(0,63) | trim}}` char(1){% if not loop.last %},{%endif %}
 {%endfor%};    
 UPDATE {{tmp("results")}} 
-SET {%for l in loe_actions%} `{{get_group_name(l.cons_group_table) | slice(0,63) | trim}}` = 0{% if not loop.last %},{% endif %} 
+SET {%for l in specific_cgs%} `{{get_group_name(l.cons_group_table) | slice(0,63) | trim}}` = 0{% if not loop.last %},{% endif %} 
 {%endfor%};
 
-{%for l in loe_actions%} 
+{%for l in specific_cgs%} 
     UPDATE {{tmp("results")}}
     SET {{tmp("results")}}.`{{get_group_name(l.cons_group_table) | slice(0,63) | trim}}` = 1 
     WHERE {{tmp("results")}}.cons_id in (select cons_id from `{{l.cons_group_table}}`);
@@ -30,7 +30,7 @@ SET {%for l in loe_actions%} `{{get_group_name(l.cons_group_table) | slice(0,63)
 SELECT * FROM {{tmp("results")}}
 ```
 
-This query pulls form signups through email for signups from 2018 to year to date. The output is a sum of total and unique signups (by email address) for each mailing, signup form, and source and subsource code.
+This query pulls form signups through email for signups from 2018 through 2020. The output is a sum of total and unique signups (by email address) for each mailing, signup form, and source and subsource code.
 ```{r, eval = FALSE}
 select 
   m.mailing_id, 
