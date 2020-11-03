@@ -7,15 +7,17 @@ _Client data has been anonymized or hidden to protect privacy._
 
 This is an example of a dashboard built in Google Spreadsheets, pulling in data using Supermetrics and exports from the donation CRM to summarize performance of a paid media campaign. The campaign had two main goals, acquisitions and donations, and tested two main concepts with varying imagery and copy to optimize on.
 
-[--> Paid Media Dashboard](https://docs.google.com/spreadsheets/d/1Jit_Ip4tqt-7EfhfK8bPAFtaA8qvpYjvXkn-yhaQF-E/edit#gid=0)
+[+ Paid Media Dashboard](https://docs.google.com/spreadsheets/d/1Jit_Ip4tqt-7EfhfK8bPAFtaA8qvpYjvXkn-yhaQF-E/edit#gid=0)
 
 
 Through Springboard, I attended an online Data Science course where I completed a capstone project using machine learning to predict the arrest outcome of traffic stops in Connecticut by State police.
 
-[--> Final Report](https://github.com/paigewil/capstone/blob/master/capstone_report.md)
-[--> GitHub Repository](https://github.com/paigewil/capstone)
+[+ Final Report](https://github.com/paigewil/capstone/blob/master/capstone_report.md)
+
+[+ GitHub Repository](https://github.com/paigewil/capstone)
 
 
 For a political client, we leveraged historical data and trends as well as publicly available data to predict monthly digital revenue for the 2109/2020 cycle.
-[--> Revenue Model Deck](https://docs.google.com/presentation/d/17xb8Kb3RoW0H9t41NTxNRL_ogRnjvBrq8cJZpeWqXvY/edit#slide=id.g55a4fa6c56_0_3)
+
+[+ Revenue Model Deck](https://docs.google.com/presentation/d/17xb8Kb3RoW0H9t41NTxNRL_ogRnjvBrq8cJZpeWqXvY/edit#slide=id.g55a4fa6c56_0_3)
 
