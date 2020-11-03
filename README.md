@@ -1,6 +1,6 @@
 # Portfolio
 
-This repository contains a collection of example work I have completed throughout coursework annd professionally. Below is a table of contents to search through relevant experience. 
+This repository contains a collection of example work I have completed throughout coursework and professionally. Below is a table of contents to search through relevant experience. 
 
 [data_visualization_and_reporting.md](https://github.com/paigewil/Portfolio/blob/master/data_visualization_and_reporting.md)
 
