@@ -70,10 +70,45 @@ select (DISTINCT cons_id)
 from (
   select 
   cons_id,
-    count(DISTINCT contribution_id) records
+  count(DISTINCT contribution_id) records
   from cons_contribution
   where transaction_dt >= date_sub(now(), interval 18 month)
   group by 1
   having records > 1
 ) i
+```
+
+This query returns constituents and their contribution associated with a specific email. It was created in BigQuery.
+
+``` r
+SELECT
+a.cons_id,
+a.email,
+a.contribution_id,
+a.transaction_amt
+FROM stg_table.contribution_table AS a
+,UNNEST(source_codes) as b
+where b.mailing_id = 1702;
+```
+
+This is the same output, utilizing cross join instead of UNNEST.
+
+``` r
+with contributions as (
+  select distinct contribution_id
+  from stg_table.fcontribution_table c
+  cross join c.source_codes
+  where source_codes.mailing_id = 1702
+)
+
+select
+a.cons_id,
+a.email,
+a.contribution_id,
+a.transaction_amt
+from stg_table.constribution_table a
+where contribution_id in (
+  select contribution_id
+  from contributions
+)
 ```
